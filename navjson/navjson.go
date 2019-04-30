@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-// NavFile represends a file/path association in a `nav.json` document.
+// NavFile represents a file/path association in a `nav.json` document.
 type NavFile struct {
 	Path  string    `json:"path"`
 	Files []NavFile `json:"files,omitempty"`
@@ -15,7 +15,7 @@ type NavFile struct {
 // NavPackage represents a list of packages in a `nav.json` document. This is only used for monorepos.
 type NavPackage map[string]string
 
-// NavJSON represets a `nav.json` document.
+// NavJSON represents a `nav.json` document.
 type NavJSON struct {
 	Root             string     `json:"root"`
 	AssetRoot        string     `json:"assetRoot"`
