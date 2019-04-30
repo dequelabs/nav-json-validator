@@ -131,6 +131,22 @@ func TestParse(t *testing.T) {
 		`)
 		assert.Error(t, err)
 	})
+
+	t.Run("skipMenuOrdering as string", func(t *testing.T) {
+		_, err := Parse(`
+			{
+				"root": "guide/attest/2.7-experiment/",
+				"assetRoot": "assets/images/attest/2.7-experiment/",
+				"skipMenuOrdering": "true",
+				"files": [
+					{
+						"path": "api-integrations"
+					}
+				]
+			}
+		`)
+		assert.Error(t, err)
+	})
 }
 
 func TestIsValid(t *testing.T) {
