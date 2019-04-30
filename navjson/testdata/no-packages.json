@@ -1,0 +1,10 @@
+{
+  "root": "guide/attest/2.7-experiment/",
+  "assetRoot": "assets/images/attest/2.7-experiment/",
+  "skipMenuOrdering": true,
+  "files": [
+    {
+      "path": "api-integrations"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "root": "guide/attest/2.7-experiment/",
+  "assetRoot": "assets/images/attest/2.7-experiment/",
+  "skipMenuOrdering": true,
+  "packages": {
+    "attest-js": "path",
+    "attest-puppeteer": "path"
+  },
+  "files": [
+    {
+      "path": "api-integrations",
+      "files": [
+        {
+          "name": "attest-js/browser-js.html",
+          "path": "browser-js"
+        },
+        {
+          "name": "attest-puppeteer/index.html",
+          "path": "node-integrations",
+          "files": [
+            {
+              "name": "attest-puppeteer/attest-puppeteer.html",
+              "path": "attest-puppeteer"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
