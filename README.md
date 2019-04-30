@@ -23,6 +23,20 @@ Usage of ./nav-json-validator:
     	Silence output
 ```
 
+### Example Usage in CI
+
+The below is an CircleCI job which uses `nav-json-validator`:
+
+```yml
+validate_navjson:
+  docker:
+    - image: circleci/golang:1.11
+  steps:
+    - checkout
+    - run: go get github.com/dequelabs/nav-json-validator
+    - run: nav-json-validator --file=/path/to/nav.json
+```
+
 ## License
 
 MPL-2.0
