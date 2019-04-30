@@ -8,6 +8,7 @@ import (
 
 // NavFile represents a file/path association in a `nav.json` document.
 type NavFile struct {
+	Name  string    `json:"name,omitempty"`
 	Path  string    `json:"path"`
 	Files []NavFile `json:"files,omitempty"`
 }

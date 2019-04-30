@@ -1,0 +1,149 @@
+{
+  "root": "guide/attest/2.7-experiment/",
+  "assetRoot": "assets/images/attest/2.7-experiment/",
+  "files": [
+    {
+      "name": "introduction.html",
+      "path": "introduction"
+    },
+    {
+      "name": "release-notes.html",
+      "path": "whats-new-html"
+    },
+    {
+      "name": "overview/index.html",
+      "path": "overview",
+      "files": [
+        {
+          "name": "use-cases.html",
+          "path": "use-cases"
+        },
+        {
+          "name": "repository.html",
+          "path": "repository"
+        },
+        {
+          "name": "architecture.html",
+          "path": "architecture"
+        },
+        {
+          "name": "glossary.html",
+          "path": "terminology"
+        },
+        {
+          "name": "components.html",
+          "path": "components"
+        }
+      ]
+    },
+    {
+      "name": "getting-started/getting-started.html",
+      "path": "getting-started",
+      "files": [
+        {
+          "name": "prerequisites.html",
+          "path": "prerequisites"
+        },
+        {
+          "name": "npm-setup/npm-setup.html",
+          "path": "npm-setup",
+          "files": [
+            {
+              "name": "generate-api-key.html",
+              "path": "generating-your-personal-api-key"
+            },
+            {
+              "name": "custom-registry-setup.html",
+              "path": "custom-registry-setup"
+            },
+            {
+              "name": "download-from-registry.html",
+              "path": "downloading-from-a-registry"
+            },
+            {
+              "name": "curl-for-windows.html",
+              "path": "curl-for-windows"
+            }
+          ]
+        },
+        {
+          "name": "tech-specific-quickstart-guides/overview.html",
+          "path": "tech-specific-quickstart-guides",
+          "files": [
+            {
+              "name": "node-webdriverjs.html",
+              "path": "nodejs-quickstart"
+            },
+            {
+              "name": "browser-js.html",
+              "path": "browser-javascript-quickstart"
+            },
+            {
+              "name": "java.html",
+              "path": "java-quickstart"
+            },
+            {
+              "name": "ruby.html",
+              "path": "attest-ruby-quickstart"
+            },
+            {
+              "name": "reporting.html",
+              "path": "reporting-quickstart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aget.html",
+      "path": "aget"
+    },
+    {
+      "name": "api-integrations.html",
+      "path": "api-integrations"
+    },
+    {
+      "name": "browser-extensions.html",
+      "path": "browser-extensions"
+    },
+    {
+      "path": "reporting"
+    },
+    {
+      "name": "custom-rulesets/custom-rules.html",
+      "path": "custom-rulesets",
+      "files": [
+        {
+          "name": "attest-standards.html",
+          "path": "attest-standards"
+        },
+        {
+          "name": "writing-rules.html",
+          "path": "writing-rules"
+        },
+        {
+          "name": "rules-checks-and-results.html",
+          "path": "rules-checks-and-results"
+        },
+        {
+          "name": "rule-descriptions.html",
+          "path": "rule-descriptions"
+        }
+      ]
+    },
+    {
+      "name": "advanced-developer-reference/adr-index.html",
+      "path": "advanced-developer-reference",
+      "files": [
+        {
+          "name": "configuring-nexus-repository-manager.html",
+          "path": "configuring-nexus-repository-manager"
+        },
+        {
+          "name": "implementing-a-plugin.html",
+          "path": "implementing-a-plugin"
+        }
+      ]
+    }
+  ]
+}
