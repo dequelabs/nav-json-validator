@@ -1,0 +1,95 @@
+{
+  "root": "guide/attest/2.7-experiment/",
+  "assetRoot": "assets/images/attest/2.7-experiment/",
+  "skipMenuOrdering": true,
+  "packages": {
+    "attest-js": "api-integrations/attest-js",
+    "attest-puppeteer": "api-integrations/node-integrations/attest-puppeteer",
+    "attest-reporter": "reporting",
+    "attest-webdriverio": "api-integrations/node-integrations/attest-webdriverio",
+    "attest-webdriverjs": "api-integrations/node-integrations/attest-webdriverjs"
+  },
+  "files": [
+    {
+      "path": "api-integrations",
+      "files": [        
+        {
+          "name": "node-integrations/attest-puppeteer/index.html",
+          "path": "node-integrations",
+          "files": [
+            {
+              "name": "attest-puppeteer/attest-puppeteer.html",
+              "path": "attest-puppeteer"
+            },
+            {
+              "name": "attest-webdriverio/webdriverio.html",
+              "path": "webdriverio"
+            },
+            {
+              "name": "attest-webdriverjs/webdriverjs.html",
+              "path": "webdriverjs"
+            }
+          ]
+        },
+        {
+          "name": "attest-js/browser-js.html",
+          "path": "browser-js"
+        }
+      ]
+    },
+    {
+      "name": "reporting/index.html",
+      "path": "reporting",
+      "files": [
+        {
+          "name": "attest-report-format.html",
+          "path": "attest-report-format"
+        },
+        {
+          "name": "generating-reports/index.html",
+          "path": "generating-reports",
+          "files": [
+            {
+              "name": "junit-xml.html",
+              "path": "junit-xml"
+            },
+            {
+              "name": "html.html",
+              "path": "html"
+            },
+            {
+              "name": "export-csv-results.html",
+              "path": "export-csv-results"
+            }
+          ]
+        },
+        {
+          "name": "exposing-reports-in-jenkins.html",
+          "path": "exposing-reports-in-jenkins"
+        },
+        {
+          "name": "sonar-qube.html",
+          "path": "sonar-qube"
+        },
+        {
+          "name": "other-ci-technologies.html",
+          "path": "other-ci-technologies"
+        },
+        {
+          "name": "understanding-the-results-object/index.html",
+          "path": "understanding-the-results-object",
+          "files": [
+            {
+              "name": "turning-violations-into-readable-html.html",
+              "path": "turning-violations-into-readable-html"
+            }
+          ]
+        },
+        {
+          "name": "attest-maven-reporter-plugin.html",
+          "path": "attest-maven-reporter-plugin"
+        }
+      ]
+    }
+  ]
+}

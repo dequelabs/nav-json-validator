@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.11
+    working_directory: /go/src/github.com/dequelabs/nav-json-validator
+    steps:
+      - checkout
+      - run: go build
+      - run: go get github.com/stretchr/testify/assert
+      - run: go test ./...
+      - run: go vet ./...
