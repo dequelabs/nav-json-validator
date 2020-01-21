@@ -2,6 +2,7 @@ package navjson
 
 import (
 	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -121,5 +122,60 @@ func TestIsValid(t *testing.T) {
 		data, err := readTestdataFile("missing-files.json")
 		assert.NoError(t, err)
 		assert.False(t, IsValid(data))
+	})
+}
+
+func TestEnsureFilesExist(t *testing.T) {
+	cwd, err := os.Getwd()
+	assert.NoError(t, err)
+
+	t.Run("missing path", func(t *testing.T) {
+		err := EnsureFilesExist(cwd, []NavFile{
+			{Name: "foo", Path: "testdata/dsfds"},
+		})
+		assert.Error(t, err)
+	})
+
+	t.Run("missing file", func(t *testing.T) {
+		err := EnsureFilesExist(cwd, []NavFile{
+			{Name: "dsfds", Path: "testdata/files"},
+		})
+		assert.Error(t, err)
+	})
+
+	t.Run("exists", func(t *testing.T) {
+		err := EnsureFilesExist(cwd, []NavFile{
+			{Name: "foo", Path: "testdata/files"},
+			{Name: "bar", Path: "testdata/files"},
+			{Name: "baz", Path: "testdata/files"},
+		})
+		assert.NoError(t, err)
+	})
+
+	t.Run("directory", func(t *testing.T) {
+		err := EnsureFilesExist(cwd, []NavFile{
+			{Name: "qux", Path: "testdata/files"},
+		})
+		assert.Error(t, err)
+	})
+
+	t.Run("nested exists", func(t *testing.T) {
+		err := EnsureFilesExist(cwd, []NavFile{
+			{Name: "foo", Path: "testdata/files", Files: []NavFile{
+				{Name: "1", Path: "qux"}, {Name: "2", Path: "qux"}},
+			},
+			{Name: "baz", Path: "testdata/files"},
+		})
+		assert.NoError(t, err)
+	})
+
+	t.Run("nested missing", func(t *testing.T) {
+		err := EnsureFilesExist(cwd, []NavFile{
+			{Name: "foo", Path: "testdata/files", Files: []NavFile{
+				{Name: "1", Path: "qux"},
+				{Name: "3", Path: "qux"}},
+			},
+		})
+		assert.Error(t, err)
 	})
 }

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path"
 
 	"github.com/dequelabs/nav-json-validator/navjson"
 )
@@ -31,11 +32,15 @@ func check(err error) {
 }
 
 func main() {
+	cwd := path.Dir(*file)
+
 	data, err := ioutil.ReadFile(*file)
 	check(err)
 
-	_, err = navjson.Parse(string(data))
+	n, err := navjson.Parse(string(data))
 	check(err)
+
+	check(navjson.EnsureFilesExist(cwd, n.Files))
 
 	if *silent == false {
 		fmt.Printf("File `%s` is valid", *file)

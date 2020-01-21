@@ -4,6 +4,8 @@ package navjson
 import (
 	"encoding/json"
 	"fmt"
+	"os"
+	"path"
 )
 
 // NavFile represents a file/path association in a `nav.json` document.
@@ -47,6 +49,31 @@ func Parse(data string) (NavJSON, error) {
 	}
 
 	return j, err
+}
+
+// EnsureFilesExist returns an error if any referenced files do not exist or are directories.
+func EnsureFilesExist(dir string, files []NavFile) error {
+	for _, f := range files {
+		p := path.Join(dir, f.Path, f.Name)
+		i, err := os.Stat(p)
+		if err != nil {
+			return fmt.Errorf("Referenced file does not exist: %s", p)
+		}
+
+		if i.IsDir() {
+			return fmt.Errorf("Referenced file is directory: %s", p)
+		}
+
+		// Recursively check all nested files.
+		if len(f.Files) > 0 {
+			subdir := path.Join(dir, f.Path)
+			if err = EnsureFilesExist(subdir, f.Files); err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
 }
 
 // IsValid checks if the given data is a valid NavJSON.
