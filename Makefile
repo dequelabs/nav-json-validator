@@ -25,4 +25,4 @@ coverage: coverage.out
 .PHONY: coverage
 
 coverage.out: $(SRC) $(TESTS)
-	go test ./... -coverprofile=coverage.out
+	go test ./... -coverprofile=$@
