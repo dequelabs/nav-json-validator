@@ -16,6 +16,10 @@ fmt:
 	go fmt ./...
 .PHONY: fmt
 
+vet:
+	go vet ./...
+.PHONY: vet
+
 coverage: coverage.out
 	go tool cover -html=$<
 .PHONY: coverage
