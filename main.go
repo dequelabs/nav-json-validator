@@ -12,9 +12,11 @@ import (
 
 var silent *bool
 var file *string
+var skipFileCheck *bool
 
 func init() {
 	silent = flag.Bool("silent", false, "Silence output")
+	skipFileCheck = flag.Bool("skip-file-check", false, "Skip file existence check")
 	file = flag.String("file", "docs/nav.json", "Path to nav.json file")
 	flag.Parse()
 }
@@ -37,10 +39,12 @@ func main() {
 	data, err := ioutil.ReadFile(*file)
 	check(err)
 
-	n, err := navjson.Parse(string(data))
+	n, err := navjson.New(cwd, string(data))
 	check(err)
 
-	check(navjson.EnsureFilesExist(cwd, n.Files))
+	if !*skipFileCheck {
+		check(n.ValidateFiles())
+	}
 
 	if *silent == false {
 		fmt.Printf("File `%s` is valid", *file)
