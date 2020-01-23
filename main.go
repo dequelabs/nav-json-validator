@@ -16,7 +16,9 @@ var skipFileCheck *bool
 
 func init() {
 	silent = flag.Bool("silent", false, "Silence output")
-	skipFileCheck = flag.Bool("skip-file-check", false, "Skip file existence check")
+	// Skip checking for file existence by default to avoid a breaking change.
+	// TODO: make the default `false` once all projects are setup to support this.
+	skipFileCheck = flag.Bool("skip-file-check", true, "Skip file existence check")
 	file = flag.String("file", "docs/nav.json", "Path to nav.json file")
 	flag.Parse()
 }

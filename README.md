@@ -21,6 +21,8 @@ Usage of ./nav-json-validator:
     	Path to nav.json file (default "docs/nav.json")
   -silent
     	Silence output
+  -skip-file-check
+    	Skip file existence check (default true)
 ```
 
 ### Example Usage in CI
