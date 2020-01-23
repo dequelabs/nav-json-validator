@@ -6,7 +6,7 @@ jobs:
     working_directory: /go/src/github.com/dequelabs/nav-json-validator
     steps:
       - checkout
-      - run: go build
       - run: go get github.com/stretchr/testify/assert
-      - run: go test ./...
-      - run: go vet ./...
+      - run: make nav-json-validator
+      - run: make test
+      - run: make vet
