@@ -49,6 +49,6 @@ func main() {
 	}
 
 	if *silent == false {
-		fmt.Printf("File `%s` is valid", *file)
+		fmt.Printf("File `%s` is valid\n", *file)
 	}
 }
